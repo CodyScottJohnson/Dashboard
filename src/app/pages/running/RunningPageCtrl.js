@@ -28,6 +28,18 @@
             })
             return deferred.promise;
         }
+        $scope.getRunDataMonth = function(){
+            var deferred = $q.defer();
+            $http({
+                method: 'GET',
+                url: 'https://jfsapp.com/Open/API/Dashboard/Run/Month/All',
+            }).then(function(data) {
+                deferred.resolve(data.data);
+            }, function(error) {
+                deferred.reject(error);
+            })
+            return deferred.promise;
+        }
         $scope.lineData = [
           {y: "2006", a: 100, b: 90},
           {y: "2007", a: 75, b: 65},
@@ -37,6 +49,7 @@
           {y: "2011", a: 75, b: 65},
           {y: "2012", a: 100, b: 90}
         ];
+        $scope.getRunDataMonth().then(function(data){$scope.RunsByMonth = data;console.log(data)})
         $scope.getAllData = function(url){
           $scope.getRunData(url)
                 .then(function(data){

@@ -1,3 +1,38 @@
+//Color Pallete////////////////////////////////////////////
+// As hex codes */
+$gray-base:              #000;
+$gray-darker:            lighten($gray-base, 13.5%); // #222
+$gray-dark:              lighten($gray-base, 20%);   // #333
+$gray:                   lighten($gray-base, 33.5%); // #555
+$gray-light:             lighten($gray-base, 46.7%); // #777
+$gray-lighter:           lighten($gray-base, 93.5%); // #eee
+
+
+$color-primary-0: #D6A4A4;	// Main Primary color */
+$color-primary-1: #FFF2F2;
+$color-primary-2: #FCDBDB;
+$color-primary-3: #B57575;
+$color-primary-4: #954F4F;
+
+$color-secondary-1-0: #D6BBA4;	// Main Secondary color (1) */
+$color-secondary-1-1: #FFF8F2;
+$color-secondary-1-2: #FCEADB;
+$color-secondary-1-3: #B59275;
+$color-secondary-1-4: #956F4F;
+
+$color-secondary-2-0: #628080;	// Main Secondary color (2) */
+$color-secondary-2-1: #BDC7C7;
+$color-secondary-2-2: #839797;
+$color-secondary-2-3: #466D6D;
+$color-secondary-2-4: #305959;
+
+$color-complement-0: #83AB83;	// Main Complement color */
+$color-complement-1: #D8E3D8;
+$color-complement-2: #AFC9AF;
+$color-complement-3: #5E915E;
+$color-complement-4: #407740;
+/////////////////////////////////////////////
+
 $default: #ffffff;
 $body-bg: #F0F3F4;
 $default-text: #666666;
@@ -11,11 +46,12 @@ $border-light: tint($border, 15%);
 $input-border: shade($border, 5%);
 $input-background: #ffffff;
 
-$sidebar: #1C2B36;
+$sidebar: $color-secondary-2-4;
+$topbar: $color-primary-4;
 $sidebar-text: #ffffff;
 $dropdown-text: #7d7d7d;
 $bootstrap-panel-text: #7d7d7d;
-$bootstrap-panel-bg: rgba(#ffffff,.3);
+$bootstrap-panel-bg: rgba(#EDF9FB,.5);
 $mail-box: whitesmoke;
 $auth-panel-background: #ffffff;
 $progress-background: rgba(#000000, 0.07);
