@@ -35,7 +35,7 @@
       };
       var map = new google.maps.Map(mapCanvas, mapOptions);
 
-        $scope.getRunData('/fitnessActivities/890479816')
+        $scope.getRunData('/fitnessActivities/890543382')
         .then(function(data){
           $scope.path = data.path
           var i;

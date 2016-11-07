@@ -9,7 +9,7 @@
       'toastr',
       'chart.js',
       'angular-chartist',
-      'angular.morris-chart',
+      'angular.morris',
       'textAngular',
       'BlurAdmin.theme.components'
   ]);

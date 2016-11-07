@@ -1,0 +1,48 @@
+<div class="horizontal-scroll">
+  <div class="form-group select-page-size-wrap ">
+    <label>All Runs
+      <select class="form-control selectpicker show-tick" title="Rows on page" selectpicker
+              ng-model="smartTablePageSize" ng-options="i for i in [5,10,15,20,25]">
+      </select>
+    </label>
+  </div>
+  <table class="table" st-table="rowCollection" st-safe-src="allRuns">
+    <thead>
+    <tr class="sortable ">
+      <th st-sort="start_time">Date</th>
+      <th st-sort="lastName">Duration</th>
+      <th st-sort="username">Distance</th>
+      <th st-sort="email">Email</th>
+      <th st-sort="age">Age</th>
+    </tr>
+    <tr>
+      <th><input st-search="firstName" placeholder="Search Date" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="lastName" placeholder="Search Duration" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="username" placeholder="Search Username" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="email" placeholder="Search Email" class="input-sm form-control search-input" type="search"/>
+      </th>
+      <th><input st-search="age" placeholder="Search Age" class="input-sm form-control search-input" type="search"/>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in rowCollection">
+      <td>{{item.start_time|cmdate:'MMM dd, yyyy'}}</td>
+      <td>{{(item.duration/60)| number:2}} min</td>
+      <td>{{(item.total_distance/1609.34)| number:2}} miles</td>
+      <td>{{((item.duration/60.0)/(item.total_distance/1609.34))| pace}}/mi</td>
+      <td>{{((item.duration/60.0)/(item.total_distance/1609.34))}}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="6" class="text-center">
+        <div st-pagination="" st-items-by-page="10" st-displayed-pages="5"></div>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>

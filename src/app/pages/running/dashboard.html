@@ -1,3 +1,37 @@
+<div class="row">
+      <div class="col-xlg-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="panel medium-panel animated zoomIn" zoom-in>
+          <div class="panel-heading clearfix">
+            <h3>{{MonthDisplay.title}} by Month</h3>
+           <div class="btn-group" role="group" aria-label="..." style="position:absolute;top:5px;right:10px">
+              <button type="button" ng-click="MonthDisplay={key:['Month_Runs'],title:'Number of Runs'}" class="btn btn-default" ng-class="{selected:MonthDisplay.key=='Month_Runs'}">Runs</button>
+              <button type="button" ng-click="MonthDisplay={key:['Month_Distance'],title:'Distance in Miles'}" class="btn btn-default" ng-class="{selected:MonthDisplay.key=='Month_Distance'}">Distance</button>
+              <button type="button" ng-click="MonthDisplay={key:['Month_Avg_Pace'],title:'Average Pace'}" class="btn btn-default" ng-class="{selected:MonthDisplay.key=='Month_Avg_Pace'}">Pace</button>
+            </div>
+          </div>
+          <div class="panel-body">
+           <div
+               area-chart
+               area-data='RunsByMonth'
+               area-xkey='Label'
+               area-ykeys = 'MonthDisplay.key'
+               area-labels='[MonthDisplay.title]'
+               xLabels="month"
+               area-xLabelAngle=90
+               area-resize='true'
+               line-colors='colors'>
+           </div>
+         </div>
+      </div>
+    </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div ba-panel ba-panel-title="All Runs" ba-panel-class="with-scroll">
+      <div include-with-scope="app/pages/running/tables/allruns.html"></div>
+    </div>
+  </div>
+</div>
 <dashboard-pie-chart></dashboard-pie-chart>
 <div class="row">
   <div  class="col-lg-6 col-md-12 col-sm-12"
@@ -10,39 +44,25 @@
        ba-panel
        ba-panel-title="Users by Country"
        ba-panel-class="medium-panel">
-    <dashboard-map></dashboard-map>
+    <div id="area-chart" class="ct-chart"></div>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-xlg-9 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-    <div class="row">
-      <div class="col-xlg-8 col-lg-12 col-md-12 col-sm-7 col-xs-12"
+      <div class="col-xlg-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"
            ba-panel
-           ba-panel-title="Revenue"
+           ba-panel-title="Runs Per Month"
            ba-panel-class="medium-panel">
            <div
                area-chart
                area-data='RunsByMonth'
                area-xkey='Label'
                area-ykeys=['Month_Runs'] %
-               area-labels='["Serie A"]'
+               area-labels='["Number of Runs"]'
+               xLabels='year'
                line-colors='colors'>
            </div>
       </div>
-      <div class="col-xlg-4 col-lg-12 col-md-12 col-sm-5 col-xs-12"
-           ba-panel
-           ba-panel-class="popular-app medium-panel">
-        <popular-app></popular-app>
-      </div>
-    </div>
-  </div>
-  <div class="col-xlg-3 col-lg-6 col-md-6 col-sm-12 col-xs-12"
-       ba-panel
-       ba-panel-title="Feed"
-       ba-panel-class="large-panel with-scroll feed-panel">
-    <blur-feed></blur-feed>
-  </div>
 </div>
 
 <div class="row shift-up">

@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.running', [])
+  angular.module('BlurAdmin.pages.running', ['Services','Filters'])
       .config(routeConfig);
 
   /** @ngInject */
@@ -14,10 +14,10 @@
         .state('dashboard2', {
           url: '/dashboard2',
           templateUrl: 'app/pages/running/dashboard.html',
-          title: 'Dashboard2',
+          title: 'Health',
           controller:'RunningPageCtrl',
           sidebarMeta: {
-            icon: 'ion-android-home',
+            icon: 'fa fa-heartbeat',
             order: 10,
           },
         });
