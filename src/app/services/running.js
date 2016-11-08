@@ -28,5 +28,17 @@ angular.module('Services',[])
         })
         return deferred.promise;
     }
+    Running.updateAllFromSource = function() {
+        var deferred = $q.defer();
+        $http({
+            method: 'GET',
+            url: 'https://jfsapp.com/Open/API/Dashboard/Run/Update/All',
+        }).then(function(data) {
+            deferred.resolve(data.data);
+        }, function(error) {
+            deferred.reject(error);
+        })
+        return deferred.promise;
+    }
     return Running;
   });

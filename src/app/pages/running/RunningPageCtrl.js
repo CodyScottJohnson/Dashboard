@@ -41,7 +41,6 @@
 
         Running.getRunDataAll().then(function(data) {
           $scope.allRuns = data;
-          console.log(data);
         });
         Running.getRunDataMonth().then(function(data) {
             $scope.RunsByMonth = data;
@@ -71,6 +70,18 @@
 
                 });
 
+
+        }
+        $scope.updateAll = function(){
+          Running.updateAllFromSource().then(function(data){
+            Running.getRunDataMonth().then(function(data) {
+                $scope.RunsByMonth = data;
+            })
+          Running.getRunDataAll().then(function(data) {
+              $scope.allRuns = data;
+              console.log(data);
+            });
+          })
         }
         $scope.getAllData("/fitnessActivities");
         $scope.areaLineData = {

@@ -12,7 +12,7 @@
   function WeatherCtrl($scope, $http, $timeout, $element) {
     var url = 'http://api.openweathermap.org/data/2.5/forecast';
     var method = 'GET';
-    var key = '2de143494c0b295cca9337e1e96b00e0';
+    var key = 'c715b367c64b06e69923c96bbfabc677';
     var middleOfTheDay = 15;
     $scope.units = 'metric';
     $scope.weatherIcons = {
@@ -50,7 +50,7 @@
     $scope.updateWeather = function () {
       $http({
         method: method, url: url, params: {
-          appid: key,
+          APPID: key,
           lat: $scope.geoData.geoplugin_latitude,
           lon: $scope.geoData.geoplugin_longitude,
           units: $scope.units
