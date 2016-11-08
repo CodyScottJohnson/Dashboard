@@ -10,6 +10,7 @@
 
   /** @ngInject */
   function ModalsPageCtrl($scope, $uibModal) {
+    $scope.Toast = 'Mine';
     $scope.open = function (page, size) {
       $uibModal.open({
         animation: true,

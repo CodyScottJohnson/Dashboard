@@ -4,146 +4,58 @@
 @import 'theme/buttons.scss';
 @import 'app/form.scss';
 
-html {
-  min-height: 520px;
-  height: 100%;
+.login {
+  background: -webkit-linear-gradient(to left, rgba(218, 226, 248, .6) , rgba(214, 164, 164, 0.6)); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, rgba(218, 226, 248, .6) , rgba(214, 164, 164, 0.6)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow: inset -1px -114px 72px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
+  height:100vh;
 }
-
-body {
-  @include main-background();
-  height: 100%;
+.login .submit {
+  background-color: rgba(181, 117, 117, 0.8)!important;
+  border: none;
+  color: white;
+  font-size: 15px;
+  padding: 10px;
+  width: 90%;
+  max-width: 400px;
+  margin-top: 10px;
+  border-radius: 0;
 }
-
-$text-color: #ffffff;
-
-.form-control, .form-control:focus {
-  @include placeholderStyle($text-color, 0.9);
-  background-color: rgba(0, 0, 0, .4);
-  border-radius: 5px;
-  color: $text-color;
+.login .input-group {
+  margin-top: 20px;
+  width: 90%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
-  @include placeholderStyle($text-color, 0.6);
+.login .input-group-addon {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: rgba(85, 85, 85, 0.6) !important;
 }
-
-.auth-main {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  width: 100%;
+.login input {
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #333!important;
+  border: none;
 }
-
-.auth-block {
-  width: 540px;
-  margin: 0 auto;
-  border-radius: 5px;
-  @include bg-translucent-dark(0.55);
-  color: #fff;
-  padding: 32px;
-  h1 {
-    font-weight: $font-light;
-    margin-bottom: 28px;
-    text-align: center;
-  }
-  p {
-    font-size: 16px;
-  }
-  a {
-    text-decoration: none;
-    outline: none;
-    transition: all 0.2s ease;
-    color: $primary;
-    &:hover {
-      color: $primary-dark;
-    }
-  }
-
-  .control-label {
-    padding-top: 11px;
-    color: $text-color;
-  }
-
-  .form-group {
-    margin-bottom: 12px;
-  }
+.login input::-webkit-input-placeholder {
+  color: rgba(85, 85, 85, 0.4) !important;
 }
-
-.auth-input {
-  width: 300px;
-  margin-bottom: 24px;
-  input {
-    display: block;
-    width: 100%;
-    border: none;
-    font-size: 16px;
-    padding: 4px 10px;
-    outline: none;
-  }
+.login form {
+  margin-left: auto;
+  margin-right: auto;
 }
-
-a.forgot-pass {
-  display: block;
-  text-align: right;
-  margin-bottom: -20px;
-  float: right;
-  z-index: 2;
-  position: relative;
+.login img {
+  margin-left: auto;
+  margin-right: auto;
 }
-
-.auth-link {
-  display: block;
-  font-size: 16px;
-  text-align: center;
-  margin-bottom: 33px;
-}
-
-.auth-sep {
-  margin-top: 36px;
-  margin-bottom: 24px;
-  line-height: 20px;
-  font-size: 16px;
-  text-align: center;
-  display: block;
-  position: relative;
-  & > span {
-    display: table-cell;
-    width: 30%;
-    white-space: nowrap;
-    padding: 0 24px;
-    color: $text-color;
-    & > span {
-      margin-top: -12px;
-      display: block;
-    }
-  }
-  &:before, &:after {
-    border-top: solid 1px $text-color;
-    content: "";
-    height: 1px;
-    width: 35%;
-    display: table-cell;
-  }
-}
-
-.al-share-auth {
-  text-align: center;
-  .al-share {
-    float: none;
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    li {
-      margin-left: 24px;
-      &:first-child {
-        margin-left: 0;
-      }
-      i {
-        font-size: 24px;
-      }
-    }
-  }
-}
-
-.btn-auth {
-  color: #ffffff!important;
+.center.both{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
 }

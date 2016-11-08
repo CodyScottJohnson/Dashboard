@@ -29,7 +29,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="item in rowCollection">
+    <tr ng-repeat="item in rowCollection|orderBy:-start_time">
       <td>{{item.start_time|cmdate:'MMM dd, yyyy'}}</td>
       <td>{{(item.duration/60)| number:2}} min</td>
       <td>{{(item.total_distance/1609.34)| number:2}} miles</td>
