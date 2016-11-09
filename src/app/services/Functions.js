@@ -17,7 +17,8 @@ angular.module('Services')
        }
      };
      default_options = _.assign(default_options,options);
-      var modalInstance = $uibModal.open(default_options);
+    var modalInstance = $uibModal.open(default_options);
+    console.log('modal');
      modalInstance.result.then(function (selectedItem) {
        //console.log(selectedItem);
      }, function () {

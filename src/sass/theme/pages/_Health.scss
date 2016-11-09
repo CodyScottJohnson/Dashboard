@@ -1,0 +1,15 @@
+.run_stats{
+  @include box_shadow (3);
+  height:100px;
+  line-height:100px;
+  background-color:rgba($color-secondary-2-1,.3);
+  .stat{
+    border: 1px solid rgba($color-secondary-2-1,.3);
+    height:100%;
+    text-align:center;
+    font-size:15px;
+  }
+}
+.run_chart_list{
+  @include box_shadow (2);
+}

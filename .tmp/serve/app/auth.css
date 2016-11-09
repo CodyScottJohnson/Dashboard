@@ -1,3 +1,50 @@
+.scrollbar2 {
+  overflow: hidden; }
+  .scrollbar2:hover {
+    overflow: auto; }
+  .scrollbar2::-webkit-scrollbar {
+    width: 5px;
+    height: 5px; }
+  .scrollbar2::-webkit-scrollbar-thumb {
+    background: rgba(95, 150, 191, 0.3) !important;
+    border-radius: 20px; }
+  .scrollbar2::-webkit-scrollbar-track {
+    background: rgba(221, 221, 221, 0.01) !important;
+    border-radius: 20px; }
+
+.clickable:hover {
+  cursor: pointer; }
+
+/**
+ * A mixin which helps you to add depth to elements according to the Google Material Design spec:
+ * http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality
+ *
+ * Please note that the values given in the specification cannot be used as is. To create the same visual experience
+ * the blur parameter has to be doubled.
+ *
+ * Adapted from a LESS version at https://medium.com/@Florian/freebie-google-material-design-shadow-helper-2a0501295a2d
+ *
+ * Original Author: Florian Kutschera (@gefangenimnetz), Conceptboard GmbH (@conceptboardapp)
+ *
+ * Example usage:
+ *
+ * .card {
+ *     width: 95px;
+ *     height: 95px;
+ *     background: #f4f4f4;
+ *     -webkit-transition: all 250ms;
+ *     -moz-transition: all 250ms;
+ *     transition: all 250ms;
+ *     @include box_shadow(1);
+ *     &:hover {
+ *         @include box_shadow(3);
+ *         -webkit-transform: translateY(-5px);
+ *         -moz-transform: translateY(-5px);
+ *         transform: translateY(-5px);
+ *     }
+ * }
+ *
+ */
 @font-face {
   font-family: 'socicon';
   src: url("../assets/fonts/socicon.eot");

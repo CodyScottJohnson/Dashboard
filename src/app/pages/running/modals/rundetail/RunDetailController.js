@@ -1,10 +1,21 @@
 angular.module('Services')
   .controller('RunDetailCtrl', function ($scope,$uibModalInstance,items,$sce,$timeout) {
-    var ctrl = this;
     $scope.items=items[0];
+    $scope.graphs={};
     console.log($scope.items)
-    ctrl.hideAxes = function(x) { return ''; };
-    console.log($scope.hideAxes)
+
+    angular.forEach($scope.items.distance, function(item, key) {
+      if(item.timestamp>0){
+      $scope.items.distance[key].pace = (item.timestamp/60.0)/ (item.distance/1609.34);
+      if($scope.items.distance[key].pace > 20){
+        $scope.items.distance[key].pace = 20;
+      }
+    }
+    else{
+      $scope.items.distance[key].pace = 0;
+    }
+    });
+    console.log($scope.items);
     $scope.CloseModal = function () {
         $uibModalInstance.dismiss('cancel');
       };
@@ -41,4 +52,8 @@ angular.module('Services')
 $timeout(function(){
   initialize();
 }, 100);
+$timeout(function(){
+
+  $scope.graphs=$scope.items;
+}, 200);
   });

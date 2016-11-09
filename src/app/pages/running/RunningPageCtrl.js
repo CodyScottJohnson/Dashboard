@@ -21,6 +21,7 @@
         $scope.colors = [layoutColors.primary, layoutColors.warning, layoutColors.danger, layoutColors.info, layoutColors.success, layoutColors.primaryDark];
         $scope.showRunDetail = function(runID){
           Running.getSpecificRuns([runID]).then(function(data){
+            console.log('done')
             Functions.OpenModal("app/pages/running/modals/rundetail/rundetail.html",'lg',data,'RunDetailCtrl',{windowClass:'notification_modal'});
           });
         }

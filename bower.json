@@ -55,7 +55,8 @@
     "ng-js-tree": "~0.0.7",
     "angular-filter": "^0.5.11",
     "angular-morris": "http://git.jfsapp.com/git/codysj/Angular-Morris.git",
-    "lodash": "^4.16.6"
+    "lodash": "^4.16.6",
+    "angular-fullscreen": "^1.0.1"
   },
   "resolutions": {
     "angular": "~1.4.8"
