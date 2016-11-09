@@ -14,6 +14,7 @@
       <th st-sort="username">Distance</th>
       <th st-sort="email">Email</th>
       <th st-sort="age">Age</th>
+      <th></th>
     </tr>
     <tr>
       <th><input st-search="firstName" placeholder="Search Date" class="input-sm form-control search-input"
@@ -26,6 +27,7 @@
       </th>
       <th><input st-search="age" placeholder="Search Age" class="input-sm form-control search-input" type="search"/>
       </th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -35,6 +37,7 @@
       <td>{{(item.total_distance/1609.34)| number:2}} miles</td>
       <td>{{((item.duration/60.0)/(item.total_distance/1609.34))| pace}}/mi</td>
       <td>{{((item.duration/60.0)/(item.total_distance/1609.34))}}</td>
+      <td><div ng-click="showRunDetail(item.Run_ID)" class="btn btn-info"><i style="font-size:10px" class="fa fa-plus"></i></div></td>
     </tr>
     </tbody>
     <tfoot>

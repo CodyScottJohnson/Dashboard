@@ -1,7 +1,44 @@
 angular.module('Services')
-  .controller('RunDetailCtrl', function ($scope,$uibModalInstance,items,$sce) {
-    $scope.items=items;
+  .controller('RunDetailCtrl', function ($scope,$uibModalInstance,items,$sce,$timeout) {
+    var ctrl = this;
+    $scope.items=items[0];
+    console.log($scope.items)
+    ctrl.hideAxes = function(x) { return ''; };
+    console.log($scope.hideAxes)
     $scope.CloseModal = function () {
         $uibModalInstance.dismiss('cancel');
       };
+    function initialize() {
+      var mapCanvas = document.getElementById('google-maps');
+      var mapOptions = {
+        //center: new google.maps.LatLng(0, -180),
+        //zoom: 8,
+        mapTypeId: google.maps.MapTypeId.HYBRID
+      };
+      var map = new google.maps.Map(mapCanvas, mapOptions);
+
+
+          $scope.path = $scope.items.path
+          var i;
+          var bounds = new google.maps.LatLngBounds();
+          for(i = 0; i < $scope.path.length; i++){
+            $scope.path[i].lat = $scope.path[i]['latitude'];
+            delete $scope.path[i].latitude;
+            $scope.path[i].lng = $scope.path[i]['longitude'];
+            delete $scope.path[i].longitude;
+            bounds.extend($scope.path[i]);
+          }
+          var flightPath = new google.maps.Polyline({
+            path: $scope.path,
+            geodesic: true,
+            strokeColor: '#209E91',
+            strokeOpacity: 1.0,
+            strokeWeight: 3
+          });
+          map.fitBounds(bounds);
+          flightPath.setMap(map);
+}
+$timeout(function(){
+  initialize();
+}, 100);
   });

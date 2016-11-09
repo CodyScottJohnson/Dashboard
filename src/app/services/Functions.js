@@ -1,10 +1,10 @@
 'use strict';
 
 
-angular.module('Services',[])
+angular.module('Services')
   .factory('Functions', function($http,$q,$uibModal,$rootScope) {
     var Functions = {data:{}};
-    Functions.OpenModal = function(modalname,size,data,options){
+    Functions.OpenModal = function(modalname,size,data,controller,options){
       var default_options = {
        animation: true,
        templateUrl: modalname,
@@ -16,5 +16,13 @@ angular.module('Services',[])
          }
        }
      };
-    return Functions;
-  });
+     default_options = _.assign(default_options,options);
+      var modalInstance = $uibModal.open(default_options);
+     modalInstance.result.then(function (selectedItem) {
+       //console.log(selectedItem);
+     }, function () {
+       console.log('done');
+     });
+  }
+  return Functions;
+});

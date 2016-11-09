@@ -1,7 +1,7 @@
 'use strict';
 
 
-angular.module('Services',[])
+angular.module('Services')
   .factory('Running', function($http,$q,$uibModal,$rootScope) {
     var Running = {data:{}};
     Running.getRunDataMonth = function() {
@@ -46,6 +46,18 @@ angular.module('Services',[])
         $http({
             method: 'GET',
             url: 'https://jfsapp.com/Open/API/Dashboard/Run/Update/All',
+        }).then(function(data) {
+            deferred.resolve(data.data);
+        }, function(error) {
+            deferred.reject(error);
+        })
+        return deferred.promise;
+    }
+    Running.updateDetailFromSource = function() {
+        var deferred = $q.defer();
+        $http({
+            method: 'GET',
+            url: 'https://jfsapp.com/Open/API/Dashboard/Run/Update/All/Detail',
         }).then(function(data) {
             deferred.resolve(data.data);
         }, function(error) {

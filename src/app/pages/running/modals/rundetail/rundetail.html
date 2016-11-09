@@ -1,0 +1,83 @@
+<div class="modal-content">
+<div class="panel panel-modal">
+  <div class="panel-heading">
+    <h3>{{items.start_time|cmdate:'MMM dd, yyyy'}}</h3>
+  </div>
+  <div class="panel-body" style="height:500px;overflow:scroll">
+    <div class="row">
+      <div class="col-md-6">
+    <div style="height:400px;border-radius:20px;overflow:hidden" id="google-maps"></div>
+  </div>
+    <div ng-init="goals=[160,180]" class="col-md-6">
+      <div class="panel" style="background-color:rgba(181, 117, 117, .3)">
+        <div class="panel-heading">
+          <h5 style="margin-left:auto;margin-right:auto">Heart Rate</h5>
+        </div>
+      <div style="height:150px"
+          area-chart
+          area-data='items.heart_rate'
+          area-xkey='timestamp'
+          area-ykeys = '["heart_rate"]'
+          area-labels='["Heart Rate"]'
+          area-resize='true'
+          pointsize=0
+          area-goals='goals'
+          goalStrokeWidth='10'
+          fillOpacity ='0.5'
+          smooth='true'
+          line-colors='colors'
+          hidehover="auto">
+      </div>
+
+    </div>
+    <div class="panel" style="background-color:rgba(181, 146, 117, .3)">
+      <div class="panel-heading">
+        <h5 style="margin-left:auto;margin-right:auto">Elevation</h5>
+      </div>
+    <div style="height:150px"
+        area-chart
+        area-data='items.path'
+        area-xkey='timestamp'
+        area-ykeys = '["altitude"]'
+        area-labels='["altitude"]'
+        area-resize='true'
+        pointsize=0
+        goalStrokeWidth='10'
+        fillOpacity ='0.5'
+        smooth='true'
+        line-colors='["red"]'
+        ymin='1400'
+        parseTime='false'
+        xlabelformat='blank'
+        hidehover="auto">
+    </div>
+
+  </div>
+  <div class="panel" style="background-color:rgba(94, 145, 94, .3)">
+    <div class="panel-heading">
+      <h5 style="margin-left:auto;margin-right:auto">pace</h5>
+    </div>
+  <div style="height:150px"
+      area-chart
+      area-data='items.path'
+      area-xkey='timestamp'
+      area-ykeys = '["altitude"]'
+      area-labels='["altitude"]'
+      area-resize='true'
+      pointsize=0
+      goalStrokeWidth='10'
+      fillOpacity ='0.5'
+      smooth='true'
+      line-colors='["yellow"]'
+      ymin='1400'
+      parseTime='false'
+      xlabelformat='blank'
+      hidehover="auto">
+  </div>
+
+</div>
+    </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -9,7 +9,7 @@
         .controller('RunningPageCtrl', TablesPageCtrl);
 
     /** @ngInject */
-    function TablesPageCtrl($scope,$timeout, $filter, $http, $q, editableOptions, editableThemes, baConfig,Running) {
+    function TablesPageCtrl($scope,$timeout, $filter, $http, $q, editableOptions, editableThemes, baConfig,Running,Functions) {
         var layoutColors = baConfig.colors;
         $scope.smartTablePageSize = 10;
         $scope.MonthDisplay={key:['Month_Runs'],title:'Number of Runs'}
@@ -18,26 +18,13 @@
             //console.log('change')
             //$scope.RunsByMonth = null;
           }
-        $scope.round = function(x){
-          return 'y'
-        }
         $scope.colors = [layoutColors.primary, layoutColors.warning, layoutColors.danger, layoutColors.info, layoutColors.success, layoutColors.primaryDark];
-        $scope.runData = [];
-        $scope.getRunData = function(url) {
-            var deferred = $q.defer();
-            $http({
-                method: 'POST',
-                url: 'https://jfsapp.com/Open/API/Dashboard/Nike',
-                data: {
-                    url: url
-                }
-            }).then(function(data) {
-                deferred.resolve(data.data);
-            }, function(error) {
-                deferred.reject(error);
-            })
-            return deferred.promise;
+        $scope.showRunDetail = function(runID){
+          Running.getSpecificRuns([runID]).then(function(data){
+            Functions.OpenModal("app/pages/running/modals/rundetail/rundetail.html",'lg',data,'RunDetailCtrl',{windowClass:'notification_modal'});
+          });
         }
+        $scope.runData = [];
 
         Running.getRunDataAll().then(function(data) {
           $scope.allRuns = data;
@@ -72,8 +59,10 @@
 
 
         }
+        $scope.hideAxes = function(x) { return ''; };
         $scope.updateAll = function(){
           Running.updateAllFromSource().then(function(data){
+            Running.updateDetailFromSource();
             Running.getRunDataMonth().then(function(data) {
                 $scope.RunsByMonth = data;
             })
@@ -83,19 +72,5 @@
             });
           })
         }
-        $scope.getAllData("/fitnessActivities");
-        $scope.areaLineData = {
-            labels: [1, 2, 3, 4, 5, 6, 7, 8],
-            series: [
-                [5, 9, 7, 8, 5, 3, 5, 4]
-            ]
-        };
-        $scope.areaLineOptions = {
-            fullWidth: true,
-            height: "300px",
-            low: 0,
-            showArea: true
-        };
-
     }
 })();

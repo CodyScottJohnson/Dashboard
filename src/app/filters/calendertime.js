@@ -35,4 +35,12 @@ angular.module('Filters',[])
         return Math.floor(input) +"' " + min + '"';
       };
   }
+])
+.filter('blankFilter', [
+  '$filter',
+  function($filter) {
+      return function(input) {
+        return "";
+      };
+  }
 ]);
